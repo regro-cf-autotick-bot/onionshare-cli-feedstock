@@ -5,16 +5,13 @@ Subject: [PATCH] Relax the dependency pins to what conda-forge ships.
 * setuptools, wheel, cffi, cython and pkgconfig are only needed to build the
   pinned dependencies from source, which conda does not do. Nothing in
   onionshare_cli imports them.
-* stem is pinned to 1.8.1 upstream; conda-forge only has 1.8.0, which provides
-  every API onionshare_cli uses.
-* qrcode is capped below 8 upstream; the qrcode.QRCode and
-  qrcode.image.base.BaseImage APIs used here are unchanged in 8.x.
+* stem is pinned to exactly 1.8.1 upstream; allow newer patch releases.
 ---
- pyproject.toml | 9 ++-------
- 1 file changed, 2 insertions(+), 7 deletions(-)
+ pyproject.toml | 7 +------
+ 1 file changed, 1 insertion(+), 6 deletions(-)
 
 diff --git a/pyproject.toml b/pyproject.toml
-index 5a5d4b2..b45a662 100644
+index 5a5d4b2..f06b13b 100644
 --- a/pyproject.toml
 +++ b/pyproject.toml
 @@ -32,20 +32,15 @@ dependencies = [
@@ -26,7 +23,7 @@ index 5a5d4b2..b45a662 100644
      "colorama",
      "gevent-websocket",
 -    "stem == 1.8.1",
-+    "stem >= 1.8.0",
++    "stem >= 1.8.1",
      "waitress >= 3.0.1, < 4.0.0",
      "werkzeug == 3.1.9",
      "packaging >= 24",
@@ -34,9 +31,8 @@ index 5a5d4b2..b45a662 100644
 -    "wheel >= 0.46.2, < 1.0",
 -    "cffi >= 2, < 3",
 -    "cython >= 3.0.2, < 4.0",
--    "qrcode >= 7.4.2, < 8.0.0",
+     "qrcode >= 7.4.2, < 8.0.0",
 -    "pkgconfig >= 1.6.0, < 2.0",
-+    "qrcode >= 7.4.2",
  ]
  
  [project.urls]

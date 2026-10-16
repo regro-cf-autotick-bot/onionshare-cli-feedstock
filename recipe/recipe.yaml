@@ -44,9 +44,9 @@ requirements:
     - psutil
     - pynacl >=1.6.2,<2
     - pysocks
-    - qrcode >=7.4.2
+    - qrcode >=7.4.2,<8
     - requests >=2.32.3
-    - stem >=1.8.0
+    - stem >=1.8.1
     - unidecode
     - urllib3 >=2.7,<3
     - waitress >=3.0.1,<4
